@@ -24,7 +24,6 @@ const fileFilter = (req, file, cb) => {
     'image/png',
     'image/gif',
     'application/pdf',
-    'image/jpg',
   ];
 
   if (allowedMimes.includes(file.mimetype)) {
@@ -43,4 +42,7 @@ const upload = multer({
   fileFilter,
 });
 
+
 module.exports = upload;
+
+  

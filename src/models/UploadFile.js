@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const UploadFile = mongoose.model('uploadfile', {
-    nameFile: String,
+    name: String,
     size: Number,
     key: String,
     url: String,

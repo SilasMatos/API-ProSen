@@ -49,14 +49,14 @@ const updatePasswordUser = async (req, res) => {
   
   const updateNameUser = async (req, res) => {
     const userId = req.params.id;
-    const { name } = req.body;
+    const { nameUser } = req.body;
   
-    if (!name) {
+    if (!nameUser) {
       return res.status(422).json({ message: "The name is required!" });
     }
   
     try {
-      await User.findByIdAndUpdate(userId, { name });
+      await User.findByIdAndUpdate(userId, { nameUser });
   
       res.status(200).json({ message: "Username successfully updated!" });
     } catch (error) {
