@@ -95,4 +95,16 @@ const registerUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser };
+const findUsersWithNoAuth = async (req, res) => {
+  try {
+    const users = await User.find({ $and: [{ authAdmin: false }, { authStudent: false }] });
+    res.status(200).json({ users });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'An error occurred on the server!' });
+  }
+};
+
+
+
+module.exports = { registerUser, findUsersWithNoAuth };
